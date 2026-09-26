@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - slides.md
+      - style.css
       - package.json
       - .github/workflows/export-pdf.yml
 
