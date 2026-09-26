@@ -8,13 +8,13 @@ Slidevで社内LT資料を管理するためのリポジトリです。
 decks/
   grill-me/
     slides.md
-style.css
+    style.css
 package.json
 .github/workflows/export-pdf.yml
 ```
 
 - `decks/<deck-name>/slides.md`: 各スライド本体
-- `style.css`: 全デッキ共通の簡素なデザイン
+- `decks/<deck-name>/style.css`: デッキ単位の見た目
 - `dist/<deck-name>.pdf`: PDF出力先
 
 ## 起動
@@ -37,7 +37,16 @@ npm run export:grill-me
 npm run export:all
 ```
 
-GitHub Actionsでも、`decks/**` または `style.css` の変更時に全デッキをPDF化します。
+GitHub Actionsでも、`decks/**` の変更時に全デッキをPDF化します。
+
+## 新しいスライドを追加する場合
+
+```text
+decks/<new-deck>/slides.md
+decks/<new-deck>/style.css
+```
+
+を追加します。PDF名は `dist/<new-deck>.pdf` になります。
 
 ## 参照
 
