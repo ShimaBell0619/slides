@@ -3,9 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "slidev --open",
-    "build": "slidev build",
-    "export": "slidev export --output dist/grill-me-lt.pdf"
+    "dev": "slidev",
+    "dev:grill-me": "slidev decks/grill-me/slides.md --open",
+    "export": "slidev export",
+    "export:grill-me": "slidev export decks/grill-me/slides.md --output dist/grill-me.pdf",
+    "export:all": "mkdir -p dist && for deck in decks/*/slides.md; do name=$(basename $(dirname \"$deck\")); npx slidev export \"$deck\" --output \"dist/$name.pdf\"; done"
   },
   "devDependencies": {
     "@slidev/cli": "^52.1.0",
