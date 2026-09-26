@@ -1,17 +1,17 @@
-name: Export Slidev PDF
+name: Export Slidev PDFs
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - slides.md
+      - decks/**
       - style.css
       - package.json
       - .github/workflows/export-pdf.yml
 
 jobs:
-  export-pdf:
+  export-pdfs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,10 +22,10 @@ jobs:
         run: npm install
       - name: Install browser
         run: npx playwright install --with-deps chromium
-      - name: Export PDF
-        run: npm run export
-      - name: Upload PDF artifact
+      - name: Export all decks
+        run: npm run export:all
+      - name: Upload PDF artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: grill-me-lt-pdf
-          path: dist/grill-me-lt.pdf
+          name: slidev-pdfs
+          path: dist/*.pdf
