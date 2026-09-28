@@ -1,0 +1,44 @@
+name: Export Agent Skills Artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - decks/grill-me/slides.md
+      - decks/grill-me/style.css
+      - package.json
+      - package-lock.json
+      - .github/workflows/export-agent-skills-artifacts.yml
+
+permissions:
+  contents: write
+
+jobs:
+  export-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+      - name: Export PowerPoint and PDF
+        run: |
+          mkdir -p decks/grill-me/artifacts
+          npx slidev export decks/grill-me/slides.md --output decks/grill-me/artifacts/agent-skills-lt.pdf
+          npx slidev export decks/grill-me/slides.md --format pptx --output decks/grill-me/artifacts/agent-skills-lt.pptx
+      - name: Commit artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add decks/grill-me/artifacts/agent-skills-lt.pdf decks/grill-me/artifacts/agent-skills-lt.pptx
+          if git diff --cached --quiet; then
+            echo "No artifact changes"
+          else
+            git commit -m "Update Agent Skills deck artifacts"
+            git push
+          fi
