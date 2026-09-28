@@ -1,8 +1,8 @@
 ---
 theme: default
-title: Agent Skills の使い方
+title: 公開されているAgent Skillsを使ってみる
 info: |
-  社内LT向け Agent Skills / Grill Me 紹介スライド。
+  社内LT向け Agent Skills / grill-me 紹介スライド。
   Source: https://github.com/mattpocock/skills
 fonts:
   sans: Noto Sans JP, BIZ UDPGothic, Meiryo, ui-sans-serif, system-ui, sans-serif
@@ -12,134 +12,129 @@ mdc: true
 
 <div class="cover">
   <div class="eyebrow">社内LT / Agent Skills</div>
-  <h1>Agent Skills の使い方</h1>
-  <p class="lead">自作する前に、<br>公開されている型を使う。</p>
-  <p class="sub">題材: mattpocock/skills の <code>/grill-me</code></p>
+  <h1>公開されている<br>Agent Skillsを使ってみる</h1>
+  <p class="lead">grill-me の紹介</p>
+  <p class="sub">参照: mattpocock/skills</p>
 </div>
 
 ---
 
-<div class="section-label">入り口</div>
+<div class="section-label">今日の話</div>
 
-# Skills、自分で作り込んでませんか？
+# Agent Skillsは、自作だけではない
 
-<div class="statement">便利そうだから、自社用にルールを足す。<br>でも、だんだん重くなる。</div>
+<div class="statement">便利な使い方を毎回プロンプトで説明する代わりに、<br>Skillとして切り出して使う。</div>
 
 <div class="two mt-10">
   <div>
-    <h2>起きがちなこと</h2>
+    <h2>よくある進め方</h2>
     <ul>
-      <li>発火条件が曖昧になる</li>
-      <li>指示が長くなり、挙動が読みにくい</li>
-      <li>作った本人しか直せない</li>
+      <li>自分用の指示を作る</li>
+      <li>案件用に少しずつ足す</li>
+      <li>気づくと長くなる</li>
     </ul>
   </div>
   <div>
-    <h2>今回の話</h2>
+    <h2>今回見るもの</h2>
     <ul>
-      <li>まず公開Skillsを見る</li>
-      <li>良い型をそのまま試す</li>
-      <li>足す前に、使い方を覚える</li>
+      <li>公開されているSkillsを使う</li>
+      <li>まずはそのまま試す</li>
+      <li>必要なら後で調整する</li>
     </ul>
   </div>
 </div>
 
 ---
 
-<div class="section-label">公開されている型</div>
+<div class="section-label">公開Skills</div>
 
-# MITで公開されているSkillsがある
+# mattpocock/skills
 
-<div class="big-quote">mattpocock/skills は、Agentにさせたい作業を<br>小さなSkillとして整理したリポジトリ。</div>
+<div class="big-quote">Agentにやらせたい作業を、<br>小さなSkillとして整理しているリポジトリ。</div>
 
 <div class="list-large mt-8">
-  <p><strong>ライセンス:</strong> MIT。社内検証や改変の入口として扱いやすい。</p>
-  <p><strong>見方:</strong> 「便利プロンプト集」ではなく、Agentの作業手順集として見る。</p>
-  <p><strong>今回:</strong> その中から <code>/grill-me</code> を試す。</p>
+  <p><strong>ライセンス:</strong> MIT。社内で試しやすい。</p>
+  <p><strong>見方:</strong> プロンプト例というより、Agentの作業手順集として見る。</p>
+  <p><strong>今回:</strong> その中から <code>/grill-me</code> を扱う。</p>
 </div>
 
 ---
 
-<div class="section-label">Grill Me</div>
+<div class="section-label">今回扱うもの</div>
 
-# /grill-me とは
-
-<div class="big-quote">いきなり作らせず、先に質問させるSkill。</div>
+# grill-me と grill-with-docs
 
 <div class="two mt-10">
   <div>
-    <h2>使う場面</h2>
+    <h2><code>/grill-me</code></h2>
+    <ul>
+      <li>リポジトリ不要</li>
+      <li>ファイルを書かない</li>
+      <li>粗い案を質問で詰める</li>
+    </ul>
+  </div>
+  <div>
+    <h2><code>grill-with-docs</code></h2>
+    <ul>
+      <li>コードベース前提</li>
+      <li>既存資料や設計と合わせる</li>
+      <li>より開発寄りの使い方</li>
+    </ul>
+  </div>
+</div>
+
+<p class="note mt-9">LTでは、まず使いやすい <code>/grill-me</code> に絞る。</p>
+
+---
+
+<div class="section-label">grill-me</div>
+
+# いきなり作らせないためのSkill
+
+<div class="big-quote">粗い依頼を受けて、まず質問する。<br>設計案や仕様書を作るのは、その後。</div>
+
+<div class="two mt-9">
+  <div>
+    <h2>向いている場面</h2>
     <ul>
       <li>やりたいことはある</li>
-      <li>まだ要件が粗い</li>
-      <li>設計・資料・方針に進む前</li>
+      <li>まだ要件が荒い</li>
+      <li>設計・資料化の前に整理したい</li>
     </ul>
   </div>
   <div>
-    <h2>やらないこと</h2>
+    <h2>使い方</h2>
     <ul>
-      <li>勝手に起動しない</li>
-      <li>ファイルを書かない</li>
-      <li>すぐ計画を出さない</li>
+      <li>新しい会話で <code>/grill-me</code></li>
+      <li>最初は雑に説明する</li>
+      <li>質問に答えて範囲を決める</li>
     </ul>
   </div>
 </div>
 
-<p class="note mt-8">雑に言うと、「設計レビューの前に、AIに壁打ち相手をさせる」使い方。</p>
-
 ---
 
-<div class="section-label">普通の依頼との違い</div>
+<div class="section-label">使いどころ</div>
 
-# 先に答えを出さない
+# 設計Agentに渡す前の整理に使う
 
 <div class="flow mt-10">
-  <div>普通の依頼<br><span>依頼する</span></div>
+  <div>粗い相談<br><span>やりたいことだけある</span></div>
   <div class="arrow">→</div>
-  <div>Agent<br><span>前提を補って答える</span></div>
+  <div><code>/grill-me</code><br><span>未決事項を質問で出す</span></div>
   <div class="arrow">→</div>
-  <div>成果物<br><span>それっぽいが危うい</span></div>
+  <div>設計依頼<br><span>決まった前提を渡す</span></div>
 </div>
 
-<div class="flow mt-12">
-  <div>/grill-me<br><span>粗い案を出す</span></div>
-  <div class="arrow">→</div>
-  <div>Agent<br><span>決めるべきことを聞く</span></div>
-  <div class="arrow">→</div>
-  <div>人間<br><span>範囲を切って決める</span></div>
+<div class="insight mt-10">
+  いきなり方式設計Agentに渡すより、<br>先に「決めるべきこと」を洗い出せる。
 </div>
 
 ---
 
-<div class="section-label">仕組み</div>
+<div class="section-label">会話例 1</div>
 
-# 質問は、Roundで来る
-
-<div class="protocol mt-8">
-  <div>
-    <span>1</span>
-    <h2>今聞けることを聞く</h2>
-    <p>前提がなくても聞ける質問だけをまとめて出す。</p>
-  </div>
-  <div>
-    <span>2</span>
-    <h2>人間が答える</h2>
-    <p>分からない、範囲外、やりすぎ、を普通に返す。</p>
-  </div>
-  <div>
-    <span>3</span>
-    <h2>次の分岐に進む</h2>
-    <p>回答後に初めて聞ける質問だけを次に出す。</p>
-  </div>
-</div>
-
-<p class="note mt-9">公式ドキュメントでは、この質問群を <strong>frontier</strong> と説明している。要するに「今なら聞ける未決事項」。</p>
-
----
-
-<div class="section-label">例</div>
-
-# 例: Azure Functions のAPI設計
+# まずは荒い依頼を投げる
 
 <div class="chat user mt-5">
   <div class="speaker">User</div>
@@ -158,9 +153,9 @@ mdc: true
 
 ---
 
-<div class="section-label">例</div>
+<div class="section-label">会話例 2</div>
 
-# 人間が範囲を決める
+# 回答すると、次の質問が変わる
 
 <div class="chat user mt-6">
   <div class="speaker">User</div>
@@ -178,55 +173,78 @@ mdc: true
 
 ---
 
-<div class="section-label">便利なところ</div>
+<div class="section-label">会話例 3</div>
 
-# 何がうれしいか
+# 決まったことだけを次に渡す
 
-<div class="list-large mt-8">
-  <p><strong>前提漏れが見える:</strong> いきなり設計案を作るより、未決事項を先に並べられる。</p>
-  <p><strong>過剰設計を止めやすい:</strong> 「今回は不要」「範囲外」と返せる。</p>
-  <p><strong>相談前の整理に使える:</strong> 人に聞く前に、聞くべき論点を洗い出せる。</p>
+<div class="chat user mt-5">
+  <div class="speaker">User</div>
+  <p>Premium前提でよいです。送信Firewall経由とDRは今回は範囲外。受信の閉域化、Entra ID認証、App Insights監視までを対象にします。</p>
+</div>
+
+<div class="chat assistant mt-5">
+  <div class="speaker">整理結果</div>
+  <ul>
+    <li>社内システム向けの同期API</li>
+    <li>Azure Functions Premium</li>
+    <li>Entra IDで認証</li>
+    <li>受信はPrivate Endpointで閉域化</li>
+    <li>App Insightsで標準監視</li>
+    <li>DRと送信Firewall経由は今回の範囲外</li>
+  </ul>
 </div>
 
 ---
 
-<div class="section-label">注意点</div>
+<div class="section-label">便利なところ</div>
 
-# 何でも質問で解けるわけではない
+# 使ってみてよいところ
 
-<div class="two mt-9">
+<div class="list-large mt-8">
+  <p><strong>前提漏れが見える:</strong> いきなり成果物を作る前に、未決事項が出てくる。</p>
+  <p><strong>範囲外と言いやすい:</strong> 「今回は不要」「後で決める」と返せる。</p>
+  <p><strong>相談前の整理に使える:</strong> 上司や有識者に聞く前に、論点を減らせる。</p>
+</div>
+
+---
+
+<div class="section-label">Demo</div>
+
+# ここからデモに移ります
+
+<div class="statement">実際に <code>/grill-me</code> を使って、<br>粗い依頼から質問がどう出るかを見ます。</div>
+
+<div class="two mt-10">
   <div>
-    <h2>向いている</h2>
+    <h2>見るところ</h2>
     <ul>
-      <li>設計方針</li>
-      <li>LTや資料の構成</li>
-      <li>仕様化前のアイデア</li>
+      <li>最初の質問の出方</li>
+      <li>回答後に質問が変わるか</li>
+      <li>範囲外をどう扱えるか</li>
     </ul>
   </div>
   <div>
-    <h2>向いていない</h2>
+    <h2>見なくてよいところ</h2>
     <ul>
-      <li>見ないと分からないUI</li>
-      <li>測らないと分からない性能</li>
-      <li>大きすぎるテーマ</li>
+      <li>きれいな成果物作成</li>
+      <li>コード生成</li>
+      <li>長い計画書の生成</li>
     </ul>
   </div>
 </div>
-
-<div class="rule mt-10">分からない時は、無理に答えない。<br>試作・検証に切り替える。</div>
 
 ---
 
 <div class="section-label">まとめ</div>
 
-# Agent Skills は、作る前に借りる
+# 公開されている型から始める
 
 <div class="list-large mt-8">
-  <p><strong>1.</strong> Skillsを自作する前に、公開されている型を読む。</p>
-  <p><strong>2.</strong> <code>/grill-me</code> は、粗い案を質問で絞るSkill。</p>
-  <p><strong>3.</strong> 答えを急がせず、人間が決めてから次に進む。</p>
+  <p><strong>1.</strong> Agent Skillsは、自作だけでなく公開Skillsも使える。</p>
+  <p><strong>2.</strong> <code>/grill-me</code> は、粗い案を質問で詰めるSkill。</p>
+  <p><strong>3.</strong> 設計や資料作成の前に、未決事項を減らせる。</p>
 </div>
 
 <div class="closing mt-6">
-  <p>まずは、よくできたSkillをそのまま使ってみる。</p>
+  <p>まずは公開Skillsをそのまま使ってみる。</p>
 </div>
