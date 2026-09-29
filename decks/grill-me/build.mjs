@@ -96,7 +96,7 @@ function notes(s,str,urls=[]){webSlides.at(-1).notes=str+'\n\n出典\n'+urls.joi
  text(s,'npx skills@latest add mattpocock/skills \\\n  --skill grill-me grilling --agent claude-code',96,264,1115,91,26,C.teal,false,{typeface:mono,lineSpacing:1.35});
  text(s,'2   Claude Codeのチャットで呼び出す',67,392,1100,44,27,C.white,true);
  text(s,'/grill-me',96,459,1080,45,33,C.teal,true,{typeface:mono});
- text(s,'Azure Functionsで社内向けAPIを作りたいです。\n方式設計Agentに渡す前に、認証と公開範囲を詰めたいです。',96,511,1090,106,28,C.white,false,{lineSpacing:1.35});
+ text(s,'Azure Functionsで社内向けAPIを作りたいです。\n方式設計Agentに渡す前に、利用者と接続・認証を詰めたいです。',96,511,1090,106,28,C.white,false,{lineSpacing:1.35});
  text(s,'Node.js / npm が必要です。grilling は grill-me が内部で使うSkillです。',67,645,1125,28,17,'#BAC9D7');
  notes(s,'grill-meは現在、grillingを呼び出す短いSkillです。この例では両方をClaude Codeに追加します。コマンドは作業プロジェクト内にSkillファイル等を追加します。導入前にSkillの内容と社内の利用ルールを確認してください。改行に使うバックスラッシュはBash / zshの記法です。PowerShell等では2行を1行につなげて実行できます。呼び出し表記はクライアントによって異なります。今回はgrill-me/grillingの利用に絞っています。',[sources.repo,sources.grill,sources.grilling,sources.cli]);
 }
@@ -106,12 +106,12 @@ function notes(s,str,urls=[]){webSlides.at(-1).notes=str+'\n\n出典\n'+urls.joi
  const s=slide('grill-me の会話例');
  text(s,'質問に推奨案も付くので、回答を考えやすい。',67,137,1140,44,28,C.sub);
  text(s,'AI',67,225,80,44,24,C.blue,true);
- text(s,'誰がAPIを呼び出しますか？',161,216,1035,49,33,C.ink,true);
- text(s,'推奨案：まずは社内システム専用に絞る。',161,274,1035,43,26,C.sub);
- text(s,'インターネットからのアクセスは必要ですか？',161,360,1040,49,33,C.ink,true);
+ text(s,'Q1  誰がAPIを使いますか？',161,216,1035,49,33,C.ink,true);
+ text(s,'推奨案：まずは社内の担当者に絞る。',161,274,1035,43,26,C.sub);
+ text(s,'Q2  社外からも使いますか？',161,360,1040,49,33,C.ink,true);
  text(s,'推奨案：社内ネットワークからの利用に限定する。',161,418,1035,43,26,C.sub);
  text(s,'自分',67,535,85,44,24,C.blue,true);
- text(s,'社内バッチから呼びます。\n社外からのアクセスは不要です。',161,525,1035,103,32,C.blue,false,{lineSpacing:1.3});
+ text(s,'Q1  社内の担当者が業務画面から使います。\nQ2  いいえ、社内ネットワークからだけです。',161,525,1035,103,29,C.blue,false,{lineSpacing:1.3});
  text(s,'説明用の会話例。実際の質問・推奨案・順序は変わります。',67,663,1040,27,17,C.sub);
  notes(s,'説明用に作成した会話例です。実行ログではありません。grillingは、前提が決まっていて今答えられる質問をまとめ、各質問に推奨案を付ける指示です。回答に依存する質問は次の回に回します。ここでは方式設計Agentに渡す前の要件詰めに使っています。',[sources.grill,sources.grilling,sources.repo]);
 }
@@ -119,14 +119,14 @@ function notes(s,str,urls=[]){webSlides.at(-1).notes=str+'\n\n出典\n'+urls.joi
 // 6. Next round uses the previous answers.
 {
  const s=slide('回答に合わせて、質問が続く');
- text(s,'「社内バッチから呼ぶ」と分かったので、次を確認。',67,137,1145,44,28,C.sub);
+ text(s,'「社内ネットワークからだけ」と分かったので、次を確認。',67,137,1145,44,28,C.sub);
  text(s,'AI',67,225,80,44,24,C.blue,true);
- text(s,'バッチはどこで動いていますか？',161,216,1040,49,33,C.ink,true);
- text(s,'推奨案：既存の実行環境をそのまま使う。',161,274,1035,43,26,C.sub);
- text(s,'APIの認証方式に指定はありますか？',161,357,1040,49,33,C.ink,true);
- text(s,'推奨案：既存のID基盤に合わせる。',161,415,1035,43,26,C.sub);
+ text(s,'Q3  社内からAzureへどう接続しますか？',161,216,1040,49,33,C.ink,true);
+ text(s,'推奨案：既存の閉域接続を使う。',161,274,1035,43,26,C.sub);
+ text(s,'Q4  利用者の認証はどうしますか？',161,357,1040,49,33,C.ink,true);
+ text(s,'推奨案：既存のEntra IDを使う。',161,415,1035,43,26,C.sub);
  text(s,'自分',67,524,85,44,24,C.blue,true);
- text(s,'バッチはオンプレです。Azureへの閉域接続はあります。\n認証はEntra IDのアプリ認証に統一します。',161,516,1045,113,28,C.blue,false,{lineSpacing:1.4});
+ text(s,'Q3  既存の閉域接続を使います。\nQ4  社内のEntra IDアカウントで認証します。',161,516,1045,113,28,C.blue,false,{lineSpacing:1.4});
  text(s,'説明用の会話例（前ページの続き）。',67,663,1085,27,17,C.sub);
  notes(s,'前ページから続く説明用の会話例です。接続や認証の前提は架空の設定であり、利用者の本番システムを断定したものではありません。grillingの公開指示には、共通理解に至ったとユーザーが確認するまで作業を進めない、とあります。この時点ですべてのAPI要件が決まったわけではありません。',[sources.grilling]);
 }
@@ -134,7 +134,7 @@ function notes(s,str,urls=[]){webSlides.at(-1).notes=str+'\n\n出典\n'+urls.joi
 // 7. Editable outcome table, not an image.
 {
  const s=slide('質問で詰めた要件を、方式設計Agentへ');
- const rows=[['確認したこと','この例での回答'],['呼び出し元','社内バッチ（オンプレ）'],['公開範囲','社内のみ'],['ネットワーク','既存の閉域接続を使う'],['認証','Entra IDのアプリ認証']];
+ const rows=[['確認したこと','この例での回答'],['利用者','社内の担当者（業務画面）'],['公開範囲','社内ネットワークのみ'],['ネットワーク','既存の閉域接続を使う'],['認証','Entra IDの社内アカウント']];
  webSlides.at(-1).elements.push({kind:'table',x:65,y:191,w:731,h:356,widths:[207,524],rows});
  const tb=s.tables.add({rows:5,columns:2,left:65,top:191,width:731,height:356,columnWidths:[207,524],values:rows});
  tb.styleOptions={headerRow:false,bandedRows:false};
@@ -144,7 +144,7 @@ function notes(s,str,urls=[]){webSlides.at(-1).notes=str+'\n\n出典\n'+urls.joi
   cell.text.style={typeface:font,fontSize:r===0?23:25,color:r===0?C.white:C.ink,bold:r===0||c===0,autoFit:'none',verticalAlignment:'middle',insets:{left:20,right:18,top:13,bottom:10}};
  }
  text(s,'回答をまとめて渡す',842,204,378,82,29,C.blue,true);
- text(s,'呼び出し元や接続・認証の\n条件を添えて、方式案の\n作成を依頼する。',842,300,370,141,25,C.ink,false,{lineSpacing:1.45});
+ text(s,'利用者や接続・認証の\n条件を添えて、方式案の\n作成を依頼する。',842,300,370,141,25,C.ink,false,{lineSpacing:1.45});
  text(s,'分からない条件は、\n未確認と明記する。',842,470,370,99,25,C.ink,false,{lineSpacing:1.4});
  text(s,'この例では未確認：APIの処理内容、呼び出し量、可用性など。',67,625,1130,39,22,C.sub);
  notes(s,'会話例で決めた前提だけを整理しています。grill-meが必ずこの表を出力するという仕様ではありません。表への整理を求めたい場合は、会話の最後に依頼します。方式設計Agentを動かす前に、決まった条件と未確認の点を整理して渡す使い方です。方式設計Agentという呼称は業務上の想定です。質問に答えただけで全要件がそろったという意味ではありません。',[sources.grilling]);

@@ -107,7 +107,7 @@ layout: none
 <div class="work-text" style="left:96px;top:264px;width:1115px;height:91px;font-size:26px;color:#8AD8D4;font-weight:400;font-family:'DejaVu Sans Mono','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.35">npx skills@latest add mattpocock/skills \<br>  --skill grill-me grilling --agent claude-code</div>
 <div class="work-text" style="left:67px;top:392px;width:1100px;height:44px;font-size:27px;color:#FFFFFF;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">2   Claude Codeのチャットで呼び出す</div>
 <div class="work-text" style="left:96px;top:459px;width:1080px;height:45px;font-size:33px;color:#8AD8D4;font-weight:700;font-family:'DejaVu Sans Mono','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">/grill-me</div>
-<div class="work-text" style="left:96px;top:511px;width:1090px;height:106px;font-size:28px;color:#FFFFFF;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.35">Azure Functionsで社内向けAPIを作りたいです。<br>方式設計Agentに渡す前に、認証と公開範囲を詰めたいです。</div>
+<div class="work-text" style="left:96px;top:511px;width:1090px;height:106px;font-size:28px;color:#FFFFFF;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.35">Azure Functionsで社内向けAPIを作りたいです。<br>方式設計Agentに渡す前に、利用者と接続・認証を詰めたいです。</div>
 <div class="work-text" style="left:67px;top:645px;width:1125px;height:28px;font-size:17px;color:#BAC9D7;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">Node.js / npm が必要です。grilling は grill-me が内部で使うSkillです。</div>
 </div>
 
@@ -130,12 +130,12 @@ layout: none
 <div class="work-text" style="left:1180px;top:673px;width:36px;height:24px;font-size:16px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">06</div>
 <div class="work-text" style="left:67px;top:137px;width:1140px;height:44px;font-size:28px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">質問に推奨案も付くので、回答を考えやすい。</div>
 <div class="work-text" style="left:67px;top:225px;width:80px;height:44px;font-size:24px;color:#145AB0;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">AI</div>
-<div class="work-text" style="left:161px;top:216px;width:1035px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">誰がAPIを呼び出しますか？</div>
-<div class="work-text" style="left:161px;top:274px;width:1035px;height:43px;font-size:26px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">推奨案：まずは社内システム専用に絞る。</div>
-<div class="work-text" style="left:161px;top:360px;width:1040px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">インターネットからのアクセスは必要ですか？</div>
+<div class="work-text" style="left:161px;top:216px;width:1035px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">Q1  誰がAPIを使いますか？</div>
+<div class="work-text" style="left:161px;top:274px;width:1035px;height:43px;font-size:26px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">推奨案：まずは社内の担当者に絞る。</div>
+<div class="work-text" style="left:161px;top:360px;width:1040px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">Q2  社外からも使いますか？</div>
 <div class="work-text" style="left:161px;top:418px;width:1035px;height:43px;font-size:26px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">推奨案：社内ネットワークからの利用に限定する。</div>
 <div class="work-text" style="left:67px;top:535px;width:85px;height:44px;font-size:24px;color:#145AB0;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">自分</div>
-<div class="work-text" style="left:161px;top:525px;width:1035px;height:103px;font-size:32px;color:#145AB0;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.3">社内バッチから呼びます。<br>社外からのアクセスは不要です。</div>
+<div class="work-text" style="left:161px;top:525px;width:1035px;height:103px;font-size:29px;color:#145AB0;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.3">Q1  社内の担当者が業務画面から使います。<br>Q2  いいえ、社内ネットワークからだけです。</div>
 <div class="work-text" style="left:67px;top:663px;width:1040px;height:27px;font-size:17px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">説明用の会話例。実際の質問・推奨案・順序は変わります。</div>
 </div>
 
@@ -155,14 +155,14 @@ layout: none
 <div class="work-slide" style="background:#F7F8FA">
 <div class="work-text" style="left:64px;top:47px;width:1152px;height:77px;font-size:46px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">回答に合わせて、質問が続く</div>
 <div class="work-text" style="left:1180px;top:673px;width:36px;height:24px;font-size:16px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">07</div>
-<div class="work-text" style="left:67px;top:137px;width:1145px;height:44px;font-size:28px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">「社内バッチから呼ぶ」と分かったので、次を確認。</div>
+<div class="work-text" style="left:67px;top:137px;width:1145px;height:44px;font-size:28px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">「社内ネットワークからだけ」と分かったので、次を確認。</div>
 <div class="work-text" style="left:67px;top:225px;width:80px;height:44px;font-size:24px;color:#145AB0;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">AI</div>
-<div class="work-text" style="left:161px;top:216px;width:1040px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">バッチはどこで動いていますか？</div>
-<div class="work-text" style="left:161px;top:274px;width:1035px;height:43px;font-size:26px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">推奨案：既存の実行環境をそのまま使う。</div>
-<div class="work-text" style="left:161px;top:357px;width:1040px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">APIの認証方式に指定はありますか？</div>
-<div class="work-text" style="left:161px;top:415px;width:1035px;height:43px;font-size:26px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">推奨案：既存のID基盤に合わせる。</div>
+<div class="work-text" style="left:161px;top:216px;width:1040px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">Q3  社内からAzureへどう接続しますか？</div>
+<div class="work-text" style="left:161px;top:274px;width:1035px;height:43px;font-size:26px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">推奨案：既存の閉域接続を使う。</div>
+<div class="work-text" style="left:161px;top:357px;width:1040px;height:49px;font-size:33px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">Q4  利用者の認証はどうしますか？</div>
+<div class="work-text" style="left:161px;top:415px;width:1035px;height:43px;font-size:26px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">推奨案：既存のEntra IDを使う。</div>
 <div class="work-text" style="left:67px;top:524px;width:85px;height:44px;font-size:24px;color:#145AB0;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">自分</div>
-<div class="work-text" style="left:161px;top:516px;width:1045px;height:113px;font-size:28px;color:#145AB0;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.4">バッチはオンプレです。Azureへの閉域接続はあります。<br>認証はEntra IDのアプリ認証に統一します。</div>
+<div class="work-text" style="left:161px;top:516px;width:1045px;height:113px;font-size:28px;color:#145AB0;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.4">Q3  既存の閉域接続を使います。<br>Q4  社内のEntra IDアカウントで認証します。</div>
 <div class="work-text" style="left:67px;top:663px;width:1085px;height:27px;font-size:17px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">説明用の会話例（前ページの続き）。</div>
 </div>
 
@@ -180,9 +180,9 @@ layout: none
 <div class="work-slide" style="background:#F7F8FA">
 <div class="work-text" style="left:64px;top:47px;width:1152px;height:77px;font-size:46px;color:#17283A;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">質問で詰めた要件を、方式設計Agentへ</div>
 <div class="work-text" style="left:1180px;top:673px;width:36px;height:24px;font-size:16px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">08</div>
-<table class="work-table" style="left:65px;top:191px;width:731px;height:356px"><colgroup><col style="width:207px" /><col style="width:524px" /></colgroup><tbody><tr><th class="row-label">確認したこと</th><th class="">この例での回答</th></tr><tr><td class="row-label">呼び出し元</td><td class="">社内バッチ（オンプレ）</td></tr><tr><td class="row-label">公開範囲</td><td class="">社内のみ</td></tr><tr><td class="row-label">ネットワーク</td><td class="">既存の閉域接続を使う</td></tr><tr><td class="row-label">認証</td><td class="">Entra IDのアプリ認証</td></tr></tbody></table>
+<table class="work-table" style="left:65px;top:191px;width:731px;height:356px"><colgroup><col style="width:207px" /><col style="width:524px" /></colgroup><tbody><tr><th class="row-label">確認したこと</th><th class="">この例での回答</th></tr><tr><td class="row-label">利用者</td><td class="">社内の担当者（業務画面）</td></tr><tr><td class="row-label">公開範囲</td><td class="">社内ネットワークのみ</td></tr><tr><td class="row-label">ネットワーク</td><td class="">既存の閉域接続を使う</td></tr><tr><td class="row-label">認証</td><td class="">Entra IDの社内アカウント</td></tr></tbody></table>
 <div class="work-text" style="left:842px;top:204px;width:378px;height:82px;font-size:29px;color:#145AB0;font-weight:700;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">回答をまとめて渡す</div>
-<div class="work-text" style="left:842px;top:300px;width:370px;height:141px;font-size:25px;color:#17283A;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.45">呼び出し元や接続・認証の<br>条件を添えて、方式案の<br>作成を依頼する。</div>
+<div class="work-text" style="left:842px;top:300px;width:370px;height:141px;font-size:25px;color:#17283A;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.45">利用者や接続・認証の<br>条件を添えて、方式案の<br>作成を依頼する。</div>
 <div class="work-text" style="left:842px;top:470px;width:370px;height:99px;font-size:25px;color:#17283A;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.4">分からない条件は、<br>未確認と明記する。</div>
 <div class="work-text" style="left:67px;top:625px;width:1130px;height:39px;font-size:22px;color:#526375;font-weight:400;font-family:'Noto Sans JP','Noto Sans CJK JP','Meiryo',sans-serif;line-height:1.2">この例では未確認：APIの処理内容、呼び出し量、可用性など。</div>
 </div>
